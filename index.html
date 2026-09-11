@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liniker Wambaster - Tráfego Pago & Automações de Precisão</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/favicon.ico">
+    <title>Liniker Wambaster - Tráfego Pago & Automações</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -17,9 +16,9 @@
             --color-bg-secondary: #0D0B0A;
             --color-bg-elevated: #15110F;
             
-            --color-primary: #F06122;
-            --color-primary-hover: #FF6B28;
-            --color-primary-dark: #B93F0D;
+            --color-primary: #0066CC;
+            --color-primary-hover: #0052A3;
+            --color-primary-dark: #003D7A;
             
             --color-text-primary: #F5F3F1;
             --color-text-secondary: #B9B2AD;
@@ -31,21 +30,8 @@
             --font-heading: "Manrope", sans-serif;
             --font-body: "Inter", sans-serif;
             
-            --space-4: 16px;
-            --space-6: 24px;
-            --space-8: 32px;
-            --space-12: 48px;
-            --space-16: 64px;
-            --space-20: 80px;
-            --space-24: 96px;
-            --space-30: 120px;
-            --space-40: 160px;
-            
-            --radius-sm: 6px;
-            --radius-lg: 14px;
-            
-            --shadow-brand: 0 8px 28px rgba(240,97,34,.25);
-            --gradient-brand: linear-gradient(135deg, #FF6B28 0%, #F06122 55%, #B93F0D 100%);
+            --shadow-brand: 0 8px 28px rgba(0, 102, 204, 0.25);
+            --gradient-brand: linear-gradient(135deg, #0052A3 0%, #0066CC 55%, #003D7A 100%);
         }
 
         * {
@@ -67,7 +53,6 @@
             overflow-x: hidden;
         }
 
-        /* THREE.JS CANVAS */
         #pyramid-canvas {
             position: fixed;
             top: 0;
@@ -81,7 +66,6 @@
             display: block;
         }
 
-        /* CONTENT WRAPPER */
         .content-wrapper {
             position: relative;
             z-index: 10;
@@ -90,16 +74,9 @@
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 var(--space-8);
+            padding: 0 32px;
         }
 
-        @media (min-width: 768px) {
-            .container {
-                padding: 0 var(--space-12);
-            }
-        }
-
-        /* HEADER */
         header {
             position: fixed;
             top: 0;
@@ -108,7 +85,7 @@
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--color-border);
             z-index: 1000;
-            padding: var(--space-4) 0;
+            padding: 16px 0;
         }
 
         .header-content {
@@ -117,7 +94,7 @@
             align-items: center;
             max-width: 1280px;
             margin: 0 auto;
-            padding: var(--space-4) var(--space-8);
+            padding: 0 32px;
         }
 
         .logo {
@@ -130,7 +107,7 @@
 
         nav {
             display: none;
-            gap: var(--space-8);
+            gap: 32px;
         }
 
         @media (min-width: 768px) {
@@ -153,28 +130,35 @@
             color: var(--color-primary);
         }
 
-        /* HERO */
+        /* HERO SECTION - CASTRUM STYLE */
         .hero {
-            margin-top: 60px;
-            padding: var(--space-20) var(--space-8) var(--space-30) var(--space-8);
+            margin-top: 80px;
+            padding: 80px 32px;
             position: relative;
-            overflow: hidden;
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
         }
 
-        @media (min-width: 768px) {
-            .hero {
-                margin-top: 80px;
-                padding: var(--space-30) var(--space-12) var(--space-40) var(--space-12);
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 720px;
         }
 
         .eyebrow {
@@ -183,27 +167,26 @@
             letter-spacing: 0.24em;
             text-transform: uppercase;
             color: var(--color-primary);
-            margin-bottom: var(--space-6);
+            margin-bottom: 24px;
             opacity: 0;
             transform: translateY(24px);
         }
 
         .hero h1 {
             font-family: var(--font-heading);
-            font-size: 44px;
+            font-size: 56px;
             font-weight: 700;
-            line-height: 1.08;
+            line-height: 1.1;
             letter-spacing: -0.03em;
             color: var(--color-text-primary);
-            margin-bottom: var(--space-6);
+            margin-bottom: 24px;
             opacity: 0;
             transform: translateY(24px);
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .hero h1 {
-                font-size: 72px;
-                margin-bottom: var(--space-8);
+                font-size: 42px;
             }
         }
 
@@ -211,26 +194,19 @@
             font-size: 16px;
             line-height: 1.7;
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-8);
+            margin-bottom: 32px;
             max-width: 560px;
             opacity: 0;
             transform: translateY(24px);
         }
 
-        @media (min-width: 768px) {
-            .hero-description {
-                font-size: 18px;
-                margin-bottom: var(--space-12);
-            }
-        }
-
         .cta-button {
             display: inline-block;
-            padding: var(--space-4) var(--space-8);
+            padding: 16px 32px;
             background: var(--gradient-brand);
             color: white;
             text-decoration: none;
-            border-radius: var(--radius-sm);
+            border-radius: 6px;
             font-weight: 700;
             font-size: 14px;
             letter-spacing: 0.24em;
@@ -246,79 +222,175 @@
         .cta-button:hover {
             transform: translateY(-2px);
             filter: brightness(1.05);
-            box-shadow: 0 12px 40px rgba(240,97,34,.35);
+            box-shadow: 0 12px 40px rgba(0, 102, 204, 0.35);
         }
 
-        /* SECTION STYLES */
+        /* HERO VISUAL - PHOTO + NOTIFICATIONS */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            z-index: 2;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 40px 100px rgba(0, 102, 204, 0.3);
+        }
+
+        /* NOTIFICATIONS BADGES */
+        .notifications {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .notification {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(0, 102, 204, 0.3);
+            border-radius: 12px;
+            padding: 12px 16px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            opacity: 0;
+            animation: slideIn 0.8s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .notification-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .notification-title {
+            color: var(--color-text-primary);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .notification-value {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .notification-1 {
+            top: 20px;
+            left: -30px;
+            width: 280px;
+            animation-delay: 0.3s;
+        }
+
+        .notification-2 {
+            top: 40%;
+            right: -40px;
+            width: 260px;
+            animation-delay: 0.5s;
+        }
+
+        .notification-3 {
+            bottom: 60px;
+            left: -20px;
+            width: 240px;
+            animation-delay: 0.7s;
+        }
+
+        @media (max-width: 968px) {
+            .notifications {
+                display: none;
+            }
+        }
+
+        /* SECTIONS */
         section {
-            padding: var(--space-24) var(--space-8);
+            padding: 96px 32px;
             border-top: 1px solid var(--color-border);
             position: relative;
             z-index: 10;
         }
 
-        @media (min-width: 768px) {
-            section {
-                padding: var(--space-30) var(--space-12);
-            }
-        }
-
         section h2 {
             font-family: var(--font-heading);
-            font-size: 34px;
+            font-size: 48px;
             font-weight: 700;
             line-height: 1.08;
             letter-spacing: -0.03em;
             color: var(--color-text-primary);
-            margin-bottom: var(--space-4);
+            margin-bottom: 16px;
             opacity: 0;
             transform: translateY(24px);
-        }
-
-        @media (min-width: 768px) {
-            section h2 {
-                font-size: 56px;
-                margin-bottom: var(--space-6);
-            }
         }
 
         .section-subtitle {
             font-size: 16px;
             line-height: 1.7;
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-16);
+            margin-bottom: 48px;
             max-width: 600px;
             opacity: 0;
             transform: translateY(24px);
         }
 
-        @media (min-width: 768px) {
-            .section-subtitle {
-                font-size: 18px;
-                margin-bottom: var(--space-20);
-            }
-        }
-
         /* BENEFITS GRID */
         .benefits-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-12);
-            margin-top: var(--space-20);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .benefits-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: var(--space-16);
+                grid-template-columns: 1fr;
             }
         }
 
         .benefit-card {
             background: var(--color-bg-secondary);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--space-8);
+            border-radius: 14px;
+            padding: 32px;
             transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0;
             transform: translateY(32px);
@@ -330,12 +402,20 @@
             transform: scale(1.02);
         }
 
+        .benefit-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
         .benefit-card h3 {
             font-family: var(--font-heading);
             font-size: 20px;
             font-weight: 600;
             color: var(--color-text-primary);
-            margin-bottom: var(--space-3);
+            margin-bottom: 12px;
         }
 
         .benefit-card p {
@@ -344,18 +424,17 @@
             color: var(--color-text-secondary);
         }
 
-        /* STATS GRID */
+        /* STATS */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-12);
-            margin-top: var(--space-20);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: var(--space-16);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -366,17 +445,11 @@
 
         .stat-number {
             font-family: var(--font-heading);
-            font-size: 36px;
+            font-size: 48px;
             font-weight: 700;
             color: var(--color-primary);
             line-height: 1;
-            margin-bottom: var(--space-2);
-        }
-
-        @media (min-width: 768px) {
-            .stat-number {
-                font-size: 48px;
-            }
+            margin-bottom: 8px;
         }
 
         .stat-label {
@@ -385,31 +458,29 @@
             line-height: 1.6;
         }
 
-        /* PROCESS GRID */
+        /* PROCESS */
         .process-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-12);
-            margin-top: var(--space-20);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 48px;
         }
 
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .process-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: var(--space-16);
+                grid-template-columns: 1fr;
             }
         }
 
         .process-card {
             background: var(--color-bg-secondary);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--space-8);
+            border-radius: 14px;
+            padding: 32px;
             text-align: center;
-            position: relative;
             opacity: 0;
             transform: translateY(32px);
-            transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 300ms ease;
         }
 
         .process-card:hover {
@@ -422,7 +493,7 @@
             font-size: 28px;
             font-weight: 700;
             color: var(--color-primary);
-            margin-bottom: var(--space-3);
+            margin-bottom: 12px;
         }
 
         .process-card h3 {
@@ -430,7 +501,7 @@
             font-size: 18px;
             font-weight: 600;
             color: var(--color-text-primary);
-            margin-bottom: var(--space-3);
+            margin-bottom: 12px;
         }
 
         .process-card p {
@@ -442,12 +513,12 @@
         /* FAQ */
         .faq-container {
             max-width: 720px;
-            margin-top: var(--space-20);
+            margin-top: 48px;
         }
 
         .faq-item {
             border-bottom: 1px solid var(--color-border);
-            padding: var(--space-6) 0;
+            padding: 24px 0;
             opacity: 0;
             transform: translateY(24px);
         }
@@ -489,33 +560,27 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 300ms ease;
-            margin-top: var(--space-3);
+            margin-top: 12px;
         }
 
         .faq-item.active .faq-answer {
             max-height: 400px;
         }
 
-        /* CTA SECTION */
+        /* CTA FINAL */
         .cta-final {
             background: var(--color-bg-secondary);
             border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--space-12);
+            border-radius: 14px;
+            padding: 64px 48px;
             text-align: center;
-            margin-top: var(--space-24);
+            margin-top: 96px;
             opacity: 0;
             transform: translateY(32px);
         }
 
-        @media (min-width: 768px) {
-            .cta-final {
-                padding: var(--space-16);
-            }
-        }
-
         .cta-final h2 {
-            margin-bottom: var(--space-4);
+            margin-bottom: 16px;
             opacity: 1;
             transform: none;
         }
@@ -524,7 +589,7 @@
             font-size: 16px;
             line-height: 1.7;
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-8);
+            margin-bottom: 32px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -534,64 +599,25 @@
         footer {
             background: var(--color-bg-secondary);
             border-top: 1px solid var(--color-border);
-            padding: var(--space-16) var(--space-8);
+            padding: 64px 32px;
             text-align: center;
             color: var(--color-text-muted);
             font-size: 12px;
             position: relative;
             z-index: 10;
         }
-
-        /* RESPONSIVE GRID */
-        .hero .container {
-            display: grid !important;
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-        }
-
-        @media (min-width: 768px) {
-            .hero .container {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 3rem !important;
-            }
-        }
-
-        #quem-sou .container {
-            display: grid !important;
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-        }
-
-        @media (min-width: 768px) {
-            #quem-sou .container {
-                grid-template-columns: 1fr 1fr !important;
-                gap: 3rem !important;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- THREE.JS CANVAS -->
     <div id="pyramid-canvas"></div>
 
-    <!-- CONTENT WRAPPER -->
     <div class="content-wrapper">
         <header>
             <div class="header-content">
-                <div class="logo">
-                    LINIKER WAMBASTER
-                </div>
+                <div class="logo">LINIKER WAMBASTER</div>
                 <nav>
                     <a href="#beneficios">Serviços</a>
-                    <a href="#quem-sou">Quem Sou</a>
+                    <a href="#social">Resultados</a>
                     <a href="#como">Como Funciona</a>
                     <a href="#faq">FAQ</a>
                     <a href="#contato">Contato</a>
@@ -599,21 +625,50 @@
             </div>
         </header>
 
-        <!-- HERO -->
+        <!-- HERO - CASTRUM STYLE -->
         <section class="hero">
-            <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+            <div class="hero-container">
                 <div class="hero-content">
                     <div class="eyebrow">Tráfego Pago & Automações</div>
-                    <h1>Seu negócio está travado. Vamos desbloquear.</h1>
+                    <h1>Venda Mais Com Tráfego Pago</h1>
                     <p class="hero-description">
-                        Estratégia de tráfego e automação sob medida. Sem planos genéricos. Sem promessas vazias. Só crescimento real.
+                        Estruturamos campanhas de Google Ads e Meta Ads que geram resultados reais. Sem promessas vazias. Estratégia sob medida para seu negócio.
                     </p>
                     <button class="cta-button" onclick="document.getElementById('contato').scrollIntoView()">
-                        Vamos Conversar →
+                        Quero Vender Mais →
                     </button>
                 </div>
-                <div style="text-align: center;">
-                    <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/quem-sou.png" alt="Liniker" style="border-radius: 16px; max-width: 100%; height: auto; box-shadow: 0 24px 80px rgba(240,97,34,.25);">
+
+                <div class="hero-visual">
+                    <div class="hero-photo">
+                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/quem-sou-removebg-preview.png" alt="Liniker">
+                    </div>
+
+                    <div class="notifications">
+                        <div class="notification notification-1">
+                            <div class="notification-icon">📊</div>
+                            <div class="notification-text">
+                                <div class="notification-title">Faturamento Mês</div>
+                                <div class="notification-value">+R$ 28.624</div>
+                            </div>
+                        </div>
+
+                        <div class="notification notification-2">
+                            <div class="notification-icon">👥</div>
+                            <div class="notification-text">
+                                <div class="notification-title">Novos Clientes</div>
+                                <div class="notification-value">+47 Leads</div>
+                            </div>
+                        </div>
+
+                        <div class="notification notification-3">
+                            <div class="notification-icon">✅</div>
+                            <div class="notification-text">
+                                <div class="notification-title">Taxa de Conversão</div>
+                                <div class="notification-value">19.1%</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -628,17 +683,17 @@
 
                 <div class="benefits-grid">
                     <div class="benefit-card">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/trafego.webp" alt="Tráfego Pago" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 16px;">
+                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/trafego.webp" alt="Tráfego Pago">
                         <h3>Tráfego Pago</h3>
                         <p>Google Ads, Meta Ads, campanhas de reconhecimento. Cada real convertido em resultado real.</p>
                     </div>
                     <div class="benefit-card">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/automacoes.jpeg" alt="Automações" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 16px;">
+                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/automacoes.jpeg" alt="Automações">
                         <h3>Automações</h3>
                         <p>WhatsApp humanizado, email marketing, processos automatizados. Seu negócio rodando 24/7.</p>
                     </div>
                     <div class="benefit-card">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/otimizacao.webp" alt="Otimização" style="width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 16px;">
+                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/otimizacao.webp" alt="Otimização">
                         <h3>Otimização</h3>
                         <p>Análise contínua, testes, melhorias. Cada semana seu ROI fica mais forte.</p>
                     </div>
@@ -646,7 +701,7 @@
             </div>
         </section>
 
-        <!-- PROVA SOCIAL -->
+        <!-- RESULTADOS -->
         <section id="social">
             <div class="container">
                 <h2>Resultados Reais</h2>
@@ -667,30 +722,6 @@
                         <div class="stat-number">6+</div>
                         <div class="stat-label">Anos entregando resultados</div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- QUEM SOU -->
-        <section id="quem-sou">
-            <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-                <div>
-                    <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/quem-sou.png" alt="Quem Sou" style="border-radius: 16px; max-width: 100%; height: auto; box-shadow: 0 24px 80px rgba(240,97,34,.25);">
-                </div>
-                <div>
-                    <h2>Quem Sou Eu</h2>
-                    <p class="section-subtitle" style="margin-bottom: 24px;">
-                        Liniker Wambaster. Especialista em tráfego pago e automações. 6+ anos ajudando empresários a escalar.
-                    </p>
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 16px;">
-                        Comecei do zero. Vi o que funciona e o que não funciona. Transformei isso em estratégia.
-                    </p>
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 16px;">
-                        Hoje trabalho direto com empresários que querem resultado. Sem agência. Sem intermediários. Só crescimento real.
-                    </p>
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--color-text-secondary);">
-                        300+ clientes transformados. +1M em faturamento gerado. Essa é minha história.
-                    </p>
                 </div>
             </div>
         </section>
@@ -814,10 +845,7 @@
     </div>
 
     <script>
-        // ============================================
-        // THREE.JS PREMIUM PYRAMID SETUP
-        // ============================================
-        
+        // THREE.JS PYRAMID
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -829,12 +857,7 @@
         
         camera.position.z = 4;
 
-        // ============================================
-        // PYRAMID GEOMETRY - INSPIRED BY LOGO
-        // ============================================
-        
         const pyramidGeometry = new THREE.TetrahedronGeometry(1.8, 4);
-        
         const pyramidMaterial = new THREE.MeshStandardMaterial({
             color: 0x1a1a1a,
             emissive: 0x0a0a0a,
@@ -851,13 +874,12 @@
         pyramid.receiveShadow = true;
         scene.add(pyramid);
 
-        // WIREFRAME EDGES - LARANJA VIBRANTE
         const wireframeGeometry = new THREE.TetrahedronGeometry(1.8, 4);
         const wireframeEdges = new THREE.EdgesGeometry(wireframeGeometry);
         const wireframeLines = new THREE.LineSegments(
             wireframeEdges,
             new THREE.LineBasicMaterial({ 
-                color: 0xF06122,
+                color: 0x0066CC,
                 linewidth: 2,
                 transparent: true,
                 opacity: 0.9
@@ -865,29 +887,18 @@
         );
         scene.add(wireframeLines);
 
-        // ============================================
-        // PROFESSIONAL LIGHTING
-        // ============================================
-        
-        // KEY LIGHT - LARANJA PRIMÁRIA
-        const keyLight = new THREE.PointLight(0xF06122, 1.2, 100);
+        const keyLight = new THREE.PointLight(0x0066CC, 1.2, 100);
         keyLight.position.set(6, 4, 5);
         keyLight.castShadow = true;
         scene.add(keyLight);
 
-        // RIM LIGHT - LARANJA CLARO
-        const rimLight = new THREE.PointLight(0xFF6B28, 0.8, 100);
+        const rimLight = new THREE.PointLight(0x0052A3, 0.8, 100);
         rimLight.position.set(-6, -4, 5);
         scene.add(rimLight);
 
-        // AMBIENT - BRANCO DISCRETO
         const ambientLight = new THREE.AmbientLight(0x444444, 0.6);
         scene.add(ambientLight);
 
-        // ============================================
-        // INTERACTION VARIABLES
-        // ============================================
-        
         let isDragging = false;
         let dragStartX = 0;
         let dragStartY = 0;
@@ -898,7 +909,6 @@
         let parallaxRotX = 0;
         let parallaxRotY = 0;
 
-        // Mouse tracking para parallax
         document.addEventListener('mousemove', (e) => {
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
@@ -910,13 +920,11 @@
                 targetRotationY = (e.clientX - dragStartX) * 0.01;
                 targetRotationX = (e.clientY - dragStartY) * 0.01;
             } else {
-                // Parallax subtle - apenas 3-8 graus
                 parallaxRotY = mouseX * 0.06;
                 parallaxRotX = mouseY * 0.06;
             }
         });
 
-        // DRAG EVENTS
         document.addEventListener('mousedown', (e) => {
             isDragging = true;
             dragStartX = e.clientX;
@@ -927,41 +935,16 @@
             isDragging = false;
         });
 
-        // TOUCH SUPPORT
-        document.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            dragStartX = e.touches[0].clientX;
-            dragStartY = e.touches[0].clientY;
-        });
-
-        document.addEventListener('touchmove', (e) => {
-            if (isDragging) {
-                targetRotationY = (e.touches[0].clientX - dragStartX) * 0.01;
-                targetRotationX = (e.touches[0].clientY - dragStartY) * 0.01;
-            }
-        });
-
-        document.addEventListener('touchend', () => {
-            isDragging = false;
-        });
-
-        // ============================================
-        // ANIMATION LOOP
-        // ============================================
-        
         function animate() {
             requestAnimationFrame(animate);
 
-            // SMOOTH ROTATION BLEND
             pyramid.rotation.x += (targetRotationX + parallaxRotX - pyramid.rotation.x) * 0.08;
             pyramid.rotation.y += (targetRotationY + parallaxRotY - pyramid.rotation.y) * 0.08;
 
-            // AUTO-ROTATE SLOW - 40-80 segundos para 360°
             if (!isDragging) {
-                pyramid.rotation.y += 0.0008; // ~66 segundos para 360°
+                pyramid.rotation.y += 0.0008;
             }
 
-            // SYNC WIREFRAME
             wireframeLines.rotation.copy(pyramid.rotation);
 
             renderer.render(scene, camera);
@@ -969,22 +952,15 @@
 
         animate();
 
-        // RESIZE HANDLER
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // ============================================
-        // GSAP - SCROLL STORYTELLING & ANIMATIONS
-        // ============================================
-        
+        // GSAP ANIMATIONS
         gsap.registerPlugin(ScrollTrigger);
 
-        // PYRAMID SCROLL BEHAVIOR - UMA PIRÂMIDE QUE VIAJA PELO SITE
-        
-        // HERO - Grande à direita, entrada dramática
         gsap.from(pyramid.rotation, {
             z: -0.15,
             duration: 1.2,
@@ -1000,122 +976,7 @@
             ease: 'cubic-bezier(0.16,1,.3,1)'
         });
 
-        // Pyramid scale during benefits section
-        gsap.to(pyramid.scale, {
-            x: 0.9,
-            y: 0.9,
-            z: 0.9,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#beneficios',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1,
-                markers: false
-            }
-        });
-
-        // Pyramid position during scroll
-        gsap.to(pyramid.position, {
-            x: -0.5,
-            y: -0.3,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#beneficios',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // Back to center at social proof
-        gsap.to(pyramid.position, {
-            x: 0,
-            y: 0,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#social',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // Scale up at results
-        gsap.to(pyramid.scale, {
-            x: 1.1,
-            y: 1.1,
-            z: 1.1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#social',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // Move to right at process
-        gsap.to(pyramid.position, {
-            x: 0.6,
-            y: 0.2,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#como',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // Scale down slightly
-        gsap.to(pyramid.scale, {
-            x: 0.95,
-            y: 0.95,
-            z: 0.95,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#como',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // Return to center for final CTA
-        gsap.to(pyramid.position, {
-            x: 0,
-            y: 0,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#contato',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // Scale to normal
-        gsap.to(pyramid.scale, {
-            x: 1,
-            y: 1,
-            z: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: '#contato',
-                start: 'top center',
-                end: 'center center',
-                scrub: 1
-            }
-        });
-
-        // ============================================
-        // CONTENT ANIMATIONS
-        // ============================================
-        
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-        // HERO ENTRANCE
+        // HERO ANIMATIONS
         const heroTL = gsap.timeline();
         heroTL
             .to('.eyebrow', {
@@ -1141,9 +1002,15 @@
                 y: 0,
                 duration: 0.8,
                 ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0.16);
+            }, 0.16)
+            .to('.hero-photo', {
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: 'cubic-bezier(0.16,1,.3,1)'
+            }, 0.2);
 
-        // SECTIONS FADE IN
+        // SECTION ANIMATIONS
         const sections = gsap.utils.toArray('section:not(.hero)');
         sections.forEach((section) => {
             const heading = section.querySelector('h2');
@@ -1177,7 +1044,6 @@
             }
         });
 
-        // CARDS STAGGER
         gsap.to('.benefit-card', {
             opacity: 1,
             y: 0,
@@ -1237,25 +1103,7 @@
             ease: 'cubic-bezier(0.16,1,.3,1)'
         });
 
-        // Animate Quem Sou section
-        const quemSouHeading = document.querySelector('#quem-sou h2');
-        if (quemSouHeading) {
-            gsap.to(quemSouHeading, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                scrollTrigger: {
-                    trigger: '#quem-sou',
-                    start: 'top 80%'
-                },
-                ease: 'cubic-bezier(0.16,1,.3,1)'
-            });
-        }
-
-        // ============================================
         // FAQ TOGGLE
-        // ============================================
-        
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const faqItem = question.closest('.faq-item');
@@ -1263,10 +1111,7 @@
             });
         });
 
-        // ============================================
         // SMOOTH SCROLL
-        // ============================================
-        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
