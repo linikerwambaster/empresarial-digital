@@ -138,22 +138,19 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            background: linear-gradient(135deg, rgba(7,7,7,0.85) 0%, rgba(0,50,120,0.7) 100%), url('https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/hero-bg.png');
+            background-size: cover;
+            background-position: center right;
+            background-attachment: fixed;
         }
 
         .hero-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 60px;
             align-items: center;
             max-width: 1280px;
             margin: 0 auto;
-        }
-
-        @media (max-width: 968px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
         }
 
         .hero-content {
@@ -225,28 +222,8 @@
             box-shadow: 0 12px 40px rgba(0, 102, 204, 0.35);
         }
 
-        /* HERO VISUAL - PHOTO + NOTIFICATIONS */
         .hero-visual {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-photo {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            z-index: 2;
-            opacity: 0;
-            transform: scale(0.95);
-        }
-
-        .hero-photo img {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 40px 100px rgba(0, 102, 204, 0.3);
+            display: none;
         }
 
         /* PHONE NOTIFICATION MOCKUP */
@@ -551,11 +528,6 @@
                     </button>
                 </div>
 
-                <div class="hero-visual">
-                    <div class="hero-photo">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/quem-sou-removebg-preview.png" alt="Liniker">
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -888,13 +860,7 @@
                 y: 0,
                 duration: 0.8,
                 ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0.16)
-            .to('.hero-photo', {
-                opacity: 1,
-                scale: 1,
-                duration: 0.8,
-                ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0.2);
+            }, 0.16);
 
         // SECTION ANIMATIONS
         const sections = gsap.utils.toArray('section:not(.hero)');
