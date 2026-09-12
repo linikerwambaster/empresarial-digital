@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <style>
@@ -51,25 +50,6 @@
             line-height: 1.65;
             letter-spacing: -0.01em;
             overflow-x: hidden;
-        }
-
-        #pyramid-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            display: none;
-        }
-
-        canvas {
-            display: block;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 10;
         }
 
         .container {
@@ -131,32 +111,21 @@
             color: var(--color-primary);
         }
 
-        /* HERO SECTION - CASTRUM STYLE */
+        /* HERO SECTION */
         .hero {
             margin-top: 80px;
-            padding: 80px 32px;
-            position: relative;
+            padding: 120px 32px 80px;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(7,7,7,0.9) 0%, rgba(0,50,120,0.8) 100%), url('https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/hero-bg.png');
+            background: linear-gradient(135deg, rgba(7,7,7,0.95) 0%, rgba(0,50,120,0.85) 100%), url('https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/hero-bg.png');
             background-size: cover;
             background-position: center right;
             background-attachment: fixed;
         }
 
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
         .hero-content {
-            position: relative;
-            z-index: 1;
+            max-width: 700px;
         }
 
         .eyebrow {
@@ -167,7 +136,7 @@
             color: var(--color-primary);
             margin-bottom: 24px;
             opacity: 0;
-            transform: translateY(24px);
+            animation: fadeInUp 0.6s ease 0.2s forwards;
         }
 
         .hero h1 {
@@ -179,7 +148,7 @@
             color: var(--color-text-primary);
             margin-bottom: 24px;
             opacity: 0;
-            transform: translateY(24px);
+            animation: fadeInUp 0.6s ease 0.3s forwards;
         }
 
         @media (max-width: 768px) {
@@ -193,9 +162,19 @@
             line-height: 1.7;
             color: var(--color-text-secondary);
             margin-bottom: 32px;
-            max-width: 560px;
             opacity: 0;
-            transform: translateY(24px);
+            animation: fadeInUp 0.6s ease 0.4s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .cta-button {
@@ -214,7 +193,7 @@
             transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: var(--shadow-brand);
             opacity: 0;
-            transform: translateY(24px);
+            animation: fadeInUp 0.6s ease 0.5s forwards;
         }
 
         .cta-button:hover {
@@ -223,21 +202,10 @@
             box-shadow: 0 12px 40px rgba(0, 102, 204, 0.35);
         }
 
-        .hero-visual {
-            display: none;
-        }
-
-        /* PHONE NOTIFICATION MOCKUP */
-        .phone-mockup {
-            display: none;
-        }
-
         /* SECTIONS */
         section {
             padding: 96px 32px;
             border-top: 1px solid var(--color-border);
-            position: relative;
-            z-index: 10;
         }
 
         section h2 {
@@ -248,8 +216,6 @@
             letter-spacing: -0.03em;
             color: var(--color-text-primary);
             margin-bottom: 16px;
-            opacity: 0;
-            transform: translateY(24px);
         }
 
         .section-subtitle {
@@ -258,8 +224,6 @@
             color: var(--color-text-secondary);
             margin-bottom: 48px;
             max-width: 600px;
-            opacity: 0;
-            transform: translateY(24px);
         }
 
         /* BENEFITS GRID */
@@ -282,8 +246,6 @@
             border-radius: 14px;
             padding: 32px;
             transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0;
-            transform: translateY(32px);
         }
 
         .benefit-card:hover {
@@ -328,11 +290,6 @@
             }
         }
 
-        .stat {
-            opacity: 0;
-            transform: translateY(32px);
-        }
-
         .stat-number {
             font-family: var(--font-heading);
             font-size: 48px;
@@ -368,8 +325,6 @@
             border-radius: 14px;
             padding: 32px;
             text-align: center;
-            opacity: 0;
-            transform: translateY(32px);
             transition: all 300ms ease;
         }
 
@@ -409,8 +364,6 @@
         .faq-item {
             border-bottom: 1px solid var(--color-border);
             padding: 24px 0;
-            opacity: 0;
-            transform: translateY(24px);
         }
 
         .faq-item:last-child {
@@ -465,14 +418,10 @@
             padding: 64px 48px;
             text-align: center;
             margin-top: 96px;
-            opacity: 0;
-            transform: translateY(32px);
         }
 
         .cta-final h2 {
             margin-bottom: 16px;
-            opacity: 1;
-            transform: none;
         }
 
         .cta-final p {
@@ -493,449 +442,202 @@
             text-align: center;
             color: var(--color-text-muted);
             font-size: 12px;
-            position: relative;
-            z-index: 10;
         }
     </style>
 </head>
 <body>
-    <div id="pyramid-canvas"></div>
+    <header>
+        <div class="header-content">
+            <div class="logo">LINIKER WAMBASTER</div>
+            <nav>
+                <a href="#beneficios">Serviços</a>
+                <a href="#social">Resultados</a>
+                <a href="#como">Como Funciona</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
 
-    <div class="content-wrapper">
-        <header>
-            <div class="header-content">
-                <div class="logo">LINIKER WAMBASTER</div>
-                <nav>
-                    <a href="#beneficios">Serviços</a>
-                    <a href="#social">Resultados</a>
-                    <a href="#como">Como Funciona</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#contato">Contato</a>
-                </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="eyebrow">Tráfego Pago & Automações</div>
+            <h1>Venda Mais Com Tráfego Pago</h1>
+            <p class="hero-description">
+                Estruturamos campanhas de Google Ads e Meta Ads que geram resultados reais. Sem promessas vazias. Estratégia sob medida para seu negócio.
+            </p>
+            <button class="cta-button" onclick="document.getElementById('contato').scrollIntoView()">
+                Quero Vender Mais →
+            </button>
+        </div>
+    </section>
+
+    <section id="beneficios">
+        <div class="container">
+            <h2>O Que Eu Faço</h2>
+            <p class="section-subtitle">
+                Tráfego pago com estratégia. Automações que conversam. Crescimento que você consegue medir.
+            </p>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/trafego.webp" alt="Tráfego Pago">
+                    <h3>Tráfego Pago</h3>
+                    <p>Google Ads, Meta Ads, campanhas de reconhecimento. Cada real convertido em resultado real.</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/automacoes.jpeg" alt="Automações">
+                    <h3>Automações</h3>
+                    <p>WhatsApp humanizado, email marketing, processos automatizados. Seu negócio rodando 24/7.</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/otimizacao.webp" alt="Otimização">
+                    <h3>Otimização</h3>
+                    <p>Análise contínua, testes, melhorias. Cada semana seu ROI fica mais forte.</p>
+                </div>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <!-- HERO - CASTRUM STYLE -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <div class="eyebrow">Tráfego Pago & Automações</div>
-                    <h1>Venda Mais Com Tráfego Pago</h1>
-                    <p class="hero-description">
-                        Estruturamos campanhas de Google Ads e Meta Ads que geram resultados reais. Sem promessas vazias. Estratégia sob medida para seu negócio.
-                    </p>
-                    <button class="cta-button" onclick="document.getElementById('contato').scrollIntoView()">
-                        Quero Vender Mais →
-                    </button>
+    <section id="social">
+        <div class="container">
+            <h2>Resultados Reais</h2>
+            <p class="section-subtitle">
+                6+ anos ajudando empresários a sair do zero para crescimento consistente.
+            </p>
+
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">+1M</div>
+                    <div class="stat-label">Em faturamento gerado para clientes</div>
+                </div>
+                <div>
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Clientes transformados</div>
+                </div>
+                <div>
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Anos entregando resultados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="como">
+        <div class="container">
+            <h2>Como Funciona</h2>
+            <p class="section-subtitle">
+                Um processo estruturado que começa com conversa e termina em crescimento.
+            </p>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <h3>Diagnóstico</h3>
+                    <p>Analisamos seu negócio, seus desafios e suas oportunidades.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <h3>Estratégia</h3>
+                    <p>Criamos um plano personalizado para o seu negócio.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <h3>Implementação</h3>
+                    <p>Estruturamos campanhas, automações e tracking.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <h3>Otimização</h3>
+                    <p>Testamos, analisamos e melhoramos constantemente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <h2>Dúvidas Comuns</h2>
+            <p class="section-subtitle">
+                Tudo que você precisa saber sobre tráfego pago e automações.
+            </p>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto custa um projeto com você?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Não tenho planos prontos. O preço depende do seu negócio, dos seus objetivos e do que você já investiu. Fazemos uma conversa, analisamos, e aí criamos uma proposta personalizada.
+                    </div>
                 </div>
 
-            </div>
-        </section>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo até ver resultados?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Tráfego pago: 2-4 semanas para dados sólidos. Automações: impacto imediato. O resultado depende da sua estrutura atual, mas você verá movimento nas primeiras semanas.
+                    </div>
+                </div>
 
-        <!-- BENEFÍCIOS -->
-        <section id="beneficios">
-            <div class="container">
-                <h2>O Que Eu Faço</h2>
-                <p class="section-subtitle">
-                    Tráfego pago com estratégia. Automações que conversam. Crescimento que você consegue medir.
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Você atende qual tipo de negócio?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        E-commerce, consultoria, SaaS, serviços locais, agências, academias... O negócio em si não importa. O que importa é você estar disposto a crescer.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso contratar por projeto ou é só ongoing?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Ambos. Alguns clientes querem um projeto de 3 meses para estruturar. Outros preferem continuar otimizando indefinidamente. A gente conversa e alinha o que faz mais sentido.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como é o acompanhamento?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Você trabalha comigo direto. Relatórios semanais, análises de dados, otimizações contínuas. Sem intermediários, sem burocracias.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+            <div class="cta-final">
+                <h2>Vamos Conversar?</h2>
+                <p>
+                    Se algo aqui fez você pensar "eu preciso disso", vamos agendar uma conversa. 30 minutos para entender seu negócio e traçar um plano.
                 </p>
-
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/trafego.webp" alt="Tráfego Pago">
-                        <h3>Tráfego Pago</h3>
-                        <p>Google Ads, Meta Ads, campanhas de reconhecimento. Cada real convertido em resultado real.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/automacoes.jpeg" alt="Automações">
-                        <h3>Automações</h3>
-                        <p>WhatsApp humanizado, email marketing, processos automatizados. Seu negócio rodando 24/7.</p>
-                    </div>
-                    <div class="benefit-card">
-                        <img src="https://cdn.jsdelivr.net/gh/linikerwambaster/empresarial-digital@main/otimizacao.webp" alt="Otimização">
-                        <h3>Otimização</h3>
-                        <p>Análise contínua, testes, melhorias. Cada semana seu ROI fica mais forte.</p>
-                    </div>
-                </div>
+                <button class="cta-button" onclick="alert('Em breve um link de agendamento')">
+                    Agendar Conversa Agora →
+                </button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- RESULTADOS -->
-        <section id="social">
-            <div class="container">
-                <h2>Resultados Reais</h2>
-                <p class="section-subtitle">
-                    6+ anos ajudando empresários a sair do zero para crescimento consistente.
-                </p>
-
-                <div class="stats-grid">
-                    <div class="stat">
-                        <div class="stat-number">+1M</div>
-                        <div class="stat-label">Em faturamento gerado para clientes</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">300+</div>
-                        <div class="stat-label">Clientes transformados</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">6+</div>
-                        <div class="stat-label">Anos entregando resultados</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMO FUNCIONA -->
-        <section id="como">
-            <div class="container">
-                <h2>Como Funciona</h2>
-                <p class="section-subtitle">
-                    Um processo estruturado que começa com conversa e termina em crescimento.
-                </p>
-
-                <div class="process-grid">
-                    <div class="process-card">
-                        <div class="process-number">01</div>
-                        <h3>Diagnóstico</h3>
-                        <p>Analisamos seu negócio, seus desafios e suas oportunidades.</p>
-                    </div>
-                    <div class="process-card">
-                        <div class="process-number">02</div>
-                        <h3>Estratégia</h3>
-                        <p>Criamos um plano personalizado para o seu negócio.</p>
-                    </div>
-                    <div class="process-card">
-                        <div class="process-number">03</div>
-                        <h3>Implementação</h3>
-                        <p>Estruturamos campanhas, automações e tracking.</p>
-                    </div>
-                    <div class="process-card">
-                        <div class="process-number">04</div>
-                        <h3>Otimização</h3>
-                        <p>Testamos, analisamos e melhoramos constantemente.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ -->
-        <section id="faq">
-            <div class="container">
-                <h2>Dúvidas Comuns</h2>
-                <p class="section-subtitle">
-                    Tudo que você precisa saber sobre tráfego pago e automações.
-                </p>
-
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Quanto custa um projeto com você?</span>
-                            <span class="faq-toggle">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Não tenho planos prontos. O preço depende do seu negócio, dos seus objetivos e do que você já investiu. Fazemos uma conversa, analisamos, e aí criamos uma proposta personalizada.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Quanto tempo até ver resultados?</span>
-                            <span class="faq-toggle">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Tráfego pago: 2-4 semanas para dados sólidos. Automações: impacto imediato. O resultado depende da sua estrutura atual, mas você verá movimento nas primeiras semanas.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Você atende qual tipo de negócio?</span>
-                            <span class="faq-toggle">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            E-commerce, consultoria, SaaS, serviços locais, agências, academias... O negócio em si não importa. O que importa é você estar disposto a crescer.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Posso contratar por projeto ou é só ongoing?</span>
-                            <span class="faq-toggle">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Ambos. Alguns clientes querem um projeto de 3 meses para estruturar. Outros preferem continuar otimizando indefinidamente. A gente conversa e alinha o que faz mais sentido.
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <span>Como é o acompanhamento?</span>
-                            <span class="faq-toggle">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Você trabalha comigo direto. Relatórios semanais, análises de dados, otimizações contínuas. Sem intermediários, sem burocracias.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
-        <section id="contato">
-            <div class="container">
-                <div class="cta-final">
-                    <h2>Vamos Conversar?</h2>
-                    <p>
-                        Se algo aqui fez você pensar "eu preciso disso", vamos agendar uma conversa. 30 minutos para entender seu negócio e traçar um plano.
-                    </p>
-                    <button class="cta-button" onclick="alert('Em breve um link de agendamento')">
-                        Agendar Conversa Agora →
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer>
-            <div class="container">
-                <p>© 2024 Liniker Wambaster. Especialista em Tráfego Pago & Automações.</p>
-            </div>
-        </footer>
-    </div>
+    <footer>
+        <div class="container">
+            <p>© 2024 Liniker Wambaster. Especialista em Tráfego Pago & Automações.</p>
+        </div>
+    </footer>
 
     <script>
-        // THREE.JS PYRAMID - DESABILITADO
-        /*
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x070707, 0);
-        renderer.shadowMap.enabled = true;
-        document.getElementById('pyramid-canvas').appendChild(renderer.domElement);
-        
-        camera.position.z = 4;
-
-        const pyramidGeometry = new THREE.TetrahedronGeometry(1.8, 4);
-        const pyramidMaterial = new THREE.MeshStandardMaterial({
-            color: 0x1a1a1a,
-            emissive: 0x0a0a0a,
-            wireframe: false,
-            transparent: true,
-            opacity: 0.95,
-            metalness: 0.7,
-            roughness: 0.25,
-            side: THREE.DoubleSide
-        });
-
-        const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
-        pyramid.castShadow = true;
-        pyramid.receiveShadow = true;
-        scene.add(pyramid);
-
-        const wireframeGeometry = new THREE.TetrahedronGeometry(1.8, 4);
-        const wireframeEdges = new THREE.EdgesGeometry(wireframeGeometry);
-        const wireframeLines = new THREE.LineSegments(
-            wireframeEdges,
-            new THREE.LineBasicMaterial({ 
-                color: 0x0066CC,
-                linewidth: 2,
-                transparent: true,
-                opacity: 0.9
-            })
-        );
-        scene.add(wireframeLines);
-
-        const keyLight = new THREE.PointLight(0x0066CC, 1.2, 100);
-        keyLight.position.set(6, 4, 5);
-        keyLight.castShadow = true;
-        scene.add(keyLight);
-
-        const rimLight = new THREE.PointLight(0x0052A3, 0.8, 100);
-        rimLight.position.set(-6, -4, 5);
-        scene.add(rimLight);
-
-        const ambientLight = new THREE.AmbientLight(0x444444, 0.6);
-        scene.add(ambientLight);
-
-        let isDragging = false;
-        let dragStartX = 0;
-        let dragStartY = 0;
-        let targetRotationX = 0;
-        let targetRotationY = 0;
-        let mouseX = 0;
-        let mouseY = 0;
-        let parallaxRotX = 0;
-        let parallaxRotY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            const centerX = window.innerWidth / 2;
-            const centerY = window.innerHeight / 2;
-            
-            mouseX = (e.clientX - centerX) / centerX;
-            mouseY = (e.clientY - centerY) / centerY;
-
-            if (isDragging) {
-                targetRotationY = (e.clientX - dragStartX) * 0.01;
-                targetRotationX = (e.clientY - dragStartY) * 0.01;
-            } else {
-                parallaxRotY = mouseX * 0.06;
-                parallaxRotX = mouseY * 0.06;
-            }
-        });
-
-        document.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            dragStartX = e.clientX;
-            dragStartY = e.clientY;
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            pyramid.rotation.x += (targetRotationX + parallaxRotX - pyramid.rotation.x) * 0.08;
-            pyramid.rotation.y += (targetRotationY + parallaxRotY - pyramid.rotation.y) * 0.08;
-
-            if (!isDragging) {
-                pyramid.rotation.y += 0.0008;
-            }
-
-            wireframeLines.rotation.copy(pyramid.rotation);
-
-            renderer.render(scene, camera);
-        }
-
-        animate();
-        */
-
-        // GSAP ANIMATIONS
         gsap.registerPlugin(ScrollTrigger);
-
-        // HERO ANIMATIONS
-        const heroTL = gsap.timeline();
-        heroTL
-            .to('.eyebrow', {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0)
-            .to('.hero h1', {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0.08)
-            .to('.hero-description', {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0.12)
-            .to('.cta-button', {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'cubic-bezier(0.16,1,.3,1)'
-            }, 0.16);
-
-        // SECTION ANIMATIONS
-        const sections = gsap.utils.toArray('section:not(.hero)');
-        sections.forEach((section) => {
-            const heading = section.querySelector('h2');
-            const subtitle = section.querySelector('.section-subtitle');
-
-            if (heading) {
-                gsap.to(heading, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%'
-                    },
-                    ease: 'cubic-bezier(0.16,1,.3,1)'
-                });
-            }
-
-            if (subtitle) {
-                gsap.to(subtitle, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    delay: 0.08,
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%'
-                    },
-                    ease: 'cubic-bezier(0.16,1,.3,1)'
-                });
-            }
-        });
-
-        gsap.to('.benefit-card', {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.08,
-            scrollTrigger: {
-                trigger: '#beneficios .benefits-grid',
-                start: 'top 80%'
-            },
-            ease: 'cubic-bezier(0.16,1,.3,1)'
-        });
-
-        gsap.to('.stat', {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.08,
-            scrollTrigger: {
-                trigger: '#social .stats-grid',
-                start: 'top 80%'
-            },
-            ease: 'cubic-bezier(0.16,1,.3,1)'
-        });
-
-        gsap.to('.process-card', {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            stagger: 0.08,
-            scrollTrigger: {
-                trigger: '#como .process-grid',
-                start: 'top 80%'
-            },
-            ease: 'cubic-bezier(0.16,1,.3,1)'
-        });
-
-        gsap.to('.faq-item', {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.06,
-            scrollTrigger: {
-                trigger: '#faq .faq-container',
-                start: 'top 80%'
-            },
-            ease: 'cubic-bezier(0.16,1,.3,1)'
-        });
-
-        gsap.to('.cta-final', {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            scrollTrigger: {
-                trigger: '#contato .cta-final',
-                start: 'top 80%'
-            },
-            ease: 'cubic-bezier(0.16,1,.3,1)'
-        });
 
         // FAQ TOGGLE
         document.querySelectorAll('.faq-question').forEach(question => {
